@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>موقعي الأول</title>
-    
+
+    <!-- استدعاء خط Cairo -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+
     <style>
         /* 1. تنسيق عام */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Cairo', sans-serif;
             background-color: #f4f4f9;
             margin: 0;
             padding: 0;
@@ -25,10 +29,30 @@
             top: 0;
             z-index: 1000;
         }
-        .logo { color: white; font-size: 24px; font-weight: bold; }
-        .nav-links { display: flex; list-style: none; gap: 20px; margin: 0; padding: 0; }
-        .nav-links a { color: white; text-decoration: none; transition: 0.3s; }
-        .nav-links a:hover { color: #28a745; }
+
+        .logo {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #28a745;
+        }
 
         /* 3. القسم الرئيسي */
         .hero {
@@ -39,73 +63,277 @@
             background-position: center;
             color: white;
         }
-        .hero h1 { font-size: 40px; margin-bottom: 15px; }
-        .hero p { font-size: 20px; margin-bottom: 30px; color: #ddd; }
+
+        .hero h1 {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            color: #ddd;
+        }
+
         .hero-btn {
-            background-color: #28a745; color: white; padding: 12px 30px;
-            text-decoration: none; border-radius: 5px; font-size: 18px; transition: 0.3s;
+            display: inline-block;
+            background-color: #28a745;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: 0.3s;
         }
-        .hero-btn:hover { background-color: #218838; transform: translateY(-5px); }
 
-        /* 4. قسم الخدمات */
-        .services { text-align: center; padding: 60px 20px; background-color: #fff; }
-        .services h2 { font-size: 32px; margin-bottom: 40px; color: #333; }
-        .services-container { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        .hero-btn:hover {
+            background-color: #218838;
+            transform: translateY(-5px);
+        }
+
+        /* 4. قسم من أنا */
+        .about {
+            padding: 60px 20px;
+            background-color: #f4f4f9;
+            text-align: center;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .about h2 {
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .about p {
+            font-size: 18px;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        /* 5. قسم الخدمات */
+        .services {
+            text-align: center;
+            padding: 60px 20px;
+            background-color: #fff;
+        }
+
+        .services h2 {
+            font-size: 32px;
+            margin-bottom: 40px;
+            color: #333;
+        }
+
+        .services-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
         .card {
-            background-color: #f9f9f9; padding: 20px; border-radius: 8px; width: 250px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: 0.3s;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            width: 250px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: 0.3s;
         }
-        .card:hover { transform: translateY(-10px); box-shadow: 0 8px 16px rgba(0,0,0,0.2); }
-        .card h3 { color: #007bff; margin-bottom: 10px; }
-        .card p { color: #666; font-size: 14px; line-height: 1.6; }
 
-        /* 5. النموذج */
-        .form-container { text-align: center; padding: 60px 20px; background-color: #f4f4f9; }
-        .form-container h2 { color: #333; margin-bottom: 20px; }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .card h3 {
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* 6. معرض الأعمال */
+        .portfolio {
+            padding: 60px 20px;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .portfolio h2 {
+            font-size: 32px;
+            margin-bottom: 40px;
+            color: #333;
+        }
+
+        .portfolio-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .project-card {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            width: 300px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .project-card h3 {
+            margin: 15px 0 10px;
+            color: #333;
+        }
+
+        .project-card p {
+            color: #666;
+            font-size: 14px;
+            padding: 0 15px 20px;
+        }
+
+        /* 7. النموذج */
+        .form-container {
+            text-align: center;
+            padding: 60px 20px;
+            background-color: #f4f4f9;
+        }
+
+        .form-container h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
         form {
-            background-color: white; padding: 30px; border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1); display: inline-block;
-            text-align: right; width: 100%; max-width: 400px;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            text-align: right;
+            width: 100%;
+            max-width: 400px;
         }
-        input { padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 4px; width: 100%; box-sizing: border-box; }
+
+        input {
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
         button {
-            background-color: #007bff; color: white; padding: 12px 20px; border: none;
-            border-radius: 4px; cursor: pointer; margin-top: 15px; width: 100%; font-size: 16px; transition: 0.3s;
+            background-color: #007bff;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 15px;
+            width: 100%;
+            font-size: 16px;
+            transition: 0.3s;
         }
-        button:hover { background-color: #0056b3; }
 
-        /* 6. تذييل الصفحة */
-        footer { background-color: #222; color: white; text-align: center; padding: 20px; margin-top: 40px; }
-        footer p { margin: 5px 0; font-size: 14px; color: #aaa; }
+        button:hover {
+            background-color: #0056b3;
+        }
 
-        /* 7. التصميم المتجاوب للهواتف */
+        /* 8. تذييل الصفحة */
+        footer {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin: 5px 0;
+            font-size: 14px;
+            color: #aaa;
+        }
+
+        /* 9. التصميم المتجاوب للهواتف */
         @media (max-width: 768px) {
-            .navbar { flex-direction: column; gap: 15px; }
-            .nav-links { flex-direction: column; align-items: center; }
-            .hero h1 { font-size: 30px; }
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero h1 {
+                font-size: 30px;
+            }
         }
     </style>
 </head>
+
 <body>
 
-    <!-- شريط التنقل -->
+    <!-- 1. شريط التنقل -->
     <nav class="navbar">
         <div class="logo">موقعي</div>
         <ul class="nav-links">
             <li><a href="#">الرئيسية</a></li>
+            <li><a href="#about">من أنا</a></li>
             <li><a href="#services">خدماتنا</a></li>
+            <li><a href="#portfolio">أعمالي</a></li>
             <li><a href="#contact">اتصل بنا</a></li>
         </ul>
     </nav>
 
-    <!-- القسم الرئيسي -->
+    <!-- 2. القسم الرئيسي -->
     <section class="hero">
-        <h1>مرحباً بك في موقعي الجديد </h1>
-        <p>أنا أتعلم البرمجة والتصميم بيدي.</p>
+        <h1>مرحباً بك في موقعي الجديد</h1>
+        <p>أتعلم البرمجة والتصميم بيدي.</p>
         <a href="#services" class="hero-btn">اكتشف المزيد</a>
     </section>
 
-    <!-- قسم الخدمات -->
+    <!-- 3. قسم من أنا -->
+    <section class="about" id="about">
+        <div class="about-content">
+            <h2>من أنا؟</h2>
+            <p>أنا عبدالباسط، مطور واجهات أمامية (Frontend Developer) شغوف بتصميم وتطوير مواقع الويب. بدأت رحلتي في عالم
+                البرمجة من الصفر، وأؤمن بأن التصميم الجيد ليس فقط ما يبدو جميلاً، بل ما يقدم تجربة سلسة وسهلة للمستخدم.
+            </p>
+            <p>أركز حالياً على بناء مواقع سريعة، متجاوبة مع جميع الشاشات، وأستخدم أحدث التقنيات مثل HTML, CSS, و
+                JavaScript. هدفي هو مساعدة الشركات والأفراد في تحويل أفكارهم إلى واقع رقمي مميز.</p>
+            <a href="#contact" class="hero-btn">تواصل معي الآن</a>
+        </div>
+    </section>
+
+    <!-- 4. قسم الخدمات -->
     <section class="services" id="services">
         <h2>خدماتي</h2>
         <div class="services-container">
@@ -124,7 +352,29 @@
         </div>
     </section>
 
-    <!-- النموذج -->
+    <!-- 5. قسم معرض الأعمال -->
+    <section class="portfolio" id="portfolio">
+        <h2>معرض أعمالي</h2>
+        <div class="portfolio-grid">
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=600" alt="مشروع 1">
+                <h3>تصميم موقع شخصي</h3>
+                <p>موقع تعريفي متجاوب مع الهواتف.</p>
+            </div>
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600" alt="مشروع 2">
+                <h3>لوحة تحكم (Dashboard)</h3>
+                <p>واجهة مستخدم لعرض البيانات والإحصائيات.</p>
+            </div>
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1522199755839-a2bacb67c546?q=80&w=600" alt="مشروع 3">
+                <h3>متجر إلكتروني</h3>
+                <p>صفحة رئيسية لمتجر ملابس بتصميم عصري.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. قسم النموذج (تواصل معي) -->
     <div class="form-container" id="contact">
         <h2>تواصل معي</h2>
         <form>
@@ -136,41 +386,46 @@
         </form>
     </div>
 
-    <!-- تذييل الصفحة -->
+    <!-- 7. تذييل الصفحة -->
     <footer>
         <p>جميع الحقوق محفوظة &copy; 2024 - موقعي الأول</p>
         <p>صُنع بكل حب وشغف لتعلم البرمجة</p>
     </footer>
 
-    <!-- كود الجافاسكريبت -->
+    <!-- 8. كود الجافاسكريبت (الزر والنموذج) -->
     <script>
-        // كود زر اكتشف المزيد
-        const discoverBtn = document.querySelector('.hero-btn');
-        const formSection = document.querySelector('.form-container');
-        discoverBtn.addEventListener('click', function(event) {
-            event.preventDefault(); 
-            formSection.scrollIntoView({ behavior: 'smooth' }); 
-        });
+    // 1. تعريف المتغيرات الخاصة بالزر
+    const discoverBtn = document.querySelector('.hero-btn');
+    const formSection = document.querySelector('.form-container');
+    
+    // 2. كود الزر
+    discoverBtn.addEventListener('click', function (event) {
+        event.preventDefault();
+        formSection.scrollIntoView({ behavior: 'smooth' });
+    });
 
-        // كود النموذج
-        const myForm = document.querySelector('form');
-        const formContainer = document.querySelector('.form-container');
-        myForm.addEventListener('submit', function(event) {
-            event.preventDefault(); 
-            const nameInput = document.querySelector('input[type="text"]');
-            const emailInput = document.querySelector('input[type="email"]');
-            const userName = nameInput.value;
-            const userEmail = emailInput.value;
+    // 3. كود النموذج
+    const myForm = document.querySelector('form');
+    const formContainer = document.querySelector('.form-container');
+    
+    myForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+        const nameInput = document.querySelector('input[type="text"]');
+        const emailInput = document.querySelector('input[type="email"]');
+        const userName = nameInput.value;
+        const userEmail = emailInput.value;
 
-            if (userName !== "" && userEmail !== "") {
-                formContainer.innerHTML = `
-                    <h2 style="color: #28a745;">أهلاً بك يا ${userName}!</h2>
-                    <p>لقد تم تسجيل بريدك (${userEmail}) بنجاح. أنت الآن مبرمج حقيقي!</p>
-                `;
-            } else {
-                alert('الرجاء تعبئة جميع الحقول أولاً!');
-            }
-        });
-    </script>
+        if (userName !== "" && userEmail !== "") {
+            // استخدمنا طريقة الدمج العادية بدلاً من علامات `` لتجنب خطأ المحرر
+            formContainer.innerHTML = 
+                '<h2 style="color: #28a745;">أهلاً بك يا ' + userName + '!</h2>' +
+                '<p>لقد تم تسجيل بريدك (' + userEmail + ') بنجاح. أنت الآن مبرمج حقيقي!</p>';
+        } else {
+            alert('الرجاء تعبئة جميع الحقول أولاً!');
+        }
+    });
+</script>
+
 </body>
+
 </html>
